@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">core</string>
+    <string name="please_try_again">Please Try Again</string>
+    <string name="generic_fail_title">fail</string>
+    <string name="generic_network_error">error network</string>
+    <string name="generic_error_button_text">retry</string>
+</resources>

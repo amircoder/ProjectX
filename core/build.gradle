@@ -1,0 +1,5 @@
+apply from: '../common_lib.gradle'
+
+dependencies {
+
+}

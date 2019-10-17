@@ -1,0 +1,23 @@
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    // Required for instrumented tests
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.google.truth:truth:0.44'
+    testImplementation 'org.mockito:mockito-inline:3.0.0'
+    androidTestImplementation 'org.mockito:mockito-inline:3.0.0'
+
+    // androidTestImplementation "org.mockito:mockito-android:+"
+    testImplementation 'androidx.annotation:annotation:1.1.0'
+    testImplementation 'androidx.test:runner:1.2.0'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1'
+
+    // Set this dependency to use JUnit 4 rules
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+
+}
