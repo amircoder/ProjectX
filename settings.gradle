@@ -1,2 +1,2 @@
-include ':app', ':core', ':lib_theme', ':feature_login', ':feature_search', ':feature_detail'
+include ':app', ':core', ':lib_theme', ':feature_search', ':feature_detail'
 rootProject.name='ProjectX'

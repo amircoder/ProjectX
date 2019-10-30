@@ -8,29 +8,32 @@ import io.reactivex.exceptions.OnErrorNotImplementedException
 import io.reactivex.plugins.RxJavaPlugins
 
 
-abstract class BaseUseCase<T> constructor(
-    private val androidSchedulers: AndroidRxSchedulers
-) : UseCase<T> {
+abstract class BaseUseCase<T : ResultResponse<R, U>, R, U : Throwable> constructor(
+    val androidSchedulers: AndroidRxSchedulers
+) : UseCase<T, R, U> {
 
-    protected val onSuccessStub: (T) -> Unit = {}
-    protected val onFailureStub: (Throwable) -> Unit = {
-        RxJavaPlugins.onError(OnErrorNotImplementedException(it))
+    private val onSuccessStub: (T) -> Unit = {}
+    private val onFailureStub: (Throwable) -> Unit = {error ->
+        RxJavaPlugins.onError(
+            OnErrorNotImplementedException(error)
+        )
     }
 
-    protected val compositeDisposable = CompositeDisposable()
+    private val compositeDisposable = CompositeDisposable()
 
     override fun cancel() = compositeDisposable.dispose()
 
     protected fun Observable<T>.executeUseCase(
         onSuccess: (T) -> Unit = onSuccessStub,
         onFailure: (Throwable) -> Unit = onFailureStub
+
     ) {
+        compositeDisposable.clear()
 
         compositeDisposable += this
             .subscribeOn(androidSchedulers.io())
             .observeOn(androidSchedulers.mainThread())
             .subscribe(onSuccess, onFailure)
-
     }
 
 

@@ -1,15 +1,19 @@
 package com.alphacoder.core.base
 
-sealed class ResultResponse<out T> {
+sealed class ResultResponse<T, U:Throwable> {
 
-    data class Success<out T>(val data: T): ResultResponse<T>()
-    data class Failure(val throwable: Throwable): ResultResponse<Throwable>()
-    class Loading<T>: ResultResponse<T>()
+    data class Success<T, U:Throwable?>(val data: T  , val error: U ): ResultResponse<T, Throwable>(){
+        fun getResult() = data
+    }
+    data class Failure< T, U:Throwable?>(val data: T, val throwable: U): ResultResponse<T, Throwable>(){
+        fun getError() = throwable
+    }
+    class Loading<T,U:Throwable>: ResultResponse<T, U>()
 
     override fun toString(): String {
         return when (this){
-            is Success -> "success: [data = $data]"
-            is Failure -> "error [exception: $throwable]"
+            is Success<*, *> -> "success: [data = $data]"
+            is Failure<*, *> -> "error [exception: $throwable]"
             is Loading -> "Loading"
         }
     }

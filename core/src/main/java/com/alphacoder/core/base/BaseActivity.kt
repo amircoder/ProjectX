@@ -2,6 +2,8 @@ package com.alphacoder.core.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import javax.inject.Inject
 
 abstract class BaseActivity: AppCompatActivity() {
@@ -9,6 +11,7 @@ abstract class BaseActivity: AppCompatActivity() {
 
 //    @Inject
 //    lateinit var themeProvider: ThemeProvider
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +39,6 @@ abstract class BaseActivity: AppCompatActivity() {
         // TODO: get theme from theme provider
 //        setTheme(themeProvider.getTheme())
     }
+
 
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#D32F2F</color>
+    <color name="colorAccent">#EC407A</color>
+    <color name="colorPrimaryText">#EDFAE8</color>
+    <color name="colorSecondaryText">#252020</color>
+    <color name="colorTextAccent">#EF5350</color>
+    <color name="colorPrimaryButton">#FF7043</color>
+    <color name="colorSecondaryButton">#9CCC65</color>
+
+    <color name="colorRipple">#FFDADA</color>
+    <color name="colorButtonRipple">#FCECED</color>
+
+
+    <color name="colorGray10">#E9E8E8</color>
+    <color name="colorGray20">#DBDBDB</color>
+    <color name="colorGray30">#CCCBCB</color>
+    <color name="colorGray40">#B9B8B8</color>
+    <color name="colorGray50">#A3A2A2</color>
+    <color name="colorGray60">#8B8B8B</color>
+    <color name="colorGray70">#707070</color>
+    <color name="colorGray80">#575656</color>
+    <color name="colorGray90">#3C3C3C</color>
+
+    <color name="colorGold10">#FAE9B8</color>
+    <color name="colorGold20">#FFECB6</color>
+    <color name="colorGold30">#FAE4A1</color>
+    <color name="colorGold40">#FCDE94</color>
+    <color name="colorGold50">#FADC81</color>
+    <color name="colorGold60">#F8D56B</color>
+    <color name="colorGold70">#F8CC4B</color>
+    <color name="colorGold80">#FAC932</color>
+    <color name="colorGold90">#FAC81F</color>
+    <color name="colorGold100">#FFC000</color>
+
+
+</resources>

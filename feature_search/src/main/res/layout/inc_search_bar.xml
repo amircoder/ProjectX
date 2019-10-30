@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        style="@style/MainTheme.WithFont.Container.Default"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submitSearchButton"
+            style="@style/MainTheme.WithFont.BaseButton.PrimaryButton"
+            android:text="@string/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:ems="10"
+            style="@style/MainTheme.WithFont.BaseEditText.Default"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+</LinearLayout>

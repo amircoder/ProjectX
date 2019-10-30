@@ -2,5 +2,7 @@ apply plugin: 'com.android.feature'
 apply from: '../common.gradle'
 
 dependencies {
+    api project(":core")
+    api project(":lib_theme")
 
 }

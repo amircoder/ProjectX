@@ -13,12 +13,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+//    dynamicFeatures = [":feature_about",
+//                       ":feature_account",
+//                       ":feature_login",
+//                       ":feature_search",
+//                       ":feature_detail",
+//                       ":feature_browser"]
+
+
 }
 
 dependencies {
     api project(":core")
-    implementation project(":feature_login")
+    api project(":lib_theme")
     implementation project(":feature_search")
-
-
+    implementation project(":feature_detail")
 }

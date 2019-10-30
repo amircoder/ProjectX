@@ -1,7 +1,11 @@
 package com.alphacoder.di
 
 import android.app.Application
-import com.alphacoder.seach.di.SearchActivityBinding
+import com.alphacoder.core.di.DataModule
+import com.alphacoder.core.di.PersistenceModule
+import com.alphacoder.core.di.ServiceModule
+import com.alphacoder.core.di.UseCaseModule
+import com.alphacoder.search.di.SearchActivityBinding
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -14,7 +18,12 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AndroidModule::class,
+        NetworkModule::class,
         DataModule::class,
+        UseCaseModule::class,
+        ServiceModule::class,
+        PersistenceModule::class,
+        ViewModelFactoryModule::class,
         RxModule::class,
         SearchActivityBinding::class
     ]

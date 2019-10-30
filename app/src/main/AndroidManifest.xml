@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alphacoder.projectx">
+    package="com.alphacoder.ui">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,9 @@
         android:supportsRtl="true"
         android:name="com.alphacoder.app.MainApp"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.alphacoder.ui.SplashActivity"
+            android:theme="@style/AppTheme.launcher"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
