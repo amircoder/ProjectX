@@ -1,7 +1,8 @@
 package com.alphacoder.core.base
 
+import com.alphacoder.core.domain.UseCase
 import com.alphacoder.core.extension.plusAssign
-import com.twistedequations.rx2.AndroidRxSchedulers
+import com.alphacoder.core.rx.SchedulerProvider
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.exceptions.OnErrorNotImplementedException
@@ -9,11 +10,11 @@ import io.reactivex.plugins.RxJavaPlugins
 
 
 abstract class BaseUseCase<T : ResultResponse<R, U>, R, U : Throwable> constructor(
-    val androidSchedulers: AndroidRxSchedulers
+    private val androidSchedulers: SchedulerProvider
 ) : UseCase<T, R, U> {
 
     private val onSuccessStub: (T) -> Unit = {}
-    private val onFailureStub: (Throwable) -> Unit = {error ->
+    private val onFailureStub: (Throwable) -> Unit = { error ->
         RxJavaPlugins.onError(
             OnErrorNotImplementedException(error)
         )
@@ -23,17 +24,23 @@ abstract class BaseUseCase<T : ResultResponse<R, U>, R, U : Throwable> construct
 
     override fun cancel() = compositeDisposable.dispose()
 
-    protected fun Observable<T>.executeUseCase(
+    open fun Observable<T>.executeUseCase(
         onSuccess: (T) -> Unit = onSuccessStub,
         onFailure: (Throwable) -> Unit = onFailureStub
-
     ) {
         compositeDisposable.clear()
 
+
         compositeDisposable += this
-            .subscribeOn(androidSchedulers.io())
-            .observeOn(androidSchedulers.mainThread())
-            .subscribe(onSuccess, onFailure)
+            .subscribeOn(androidSchedulers.ioScheduler)
+            .observeOn(androidSchedulers.mainScheduler)
+            // Note:   cast to T (as T) is a work-around to make the rx chain sound and sane,
+            //         as startwith won't work without this cast, due to it's definition.
+            //         to find out more take a look into it's method definitions/signatures.
+            .startWith(ResultResponse.Loading<R, U>() as T)
+            .subscribe({
+                onSuccess(it)
+            }, onFailure)
     }
 
 

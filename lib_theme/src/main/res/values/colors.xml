@@ -3,8 +3,8 @@
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#D32F2F</color>
     <color name="colorAccent">#EC407A</color>
-    <color name="colorPrimaryText">#EDFAE8</color>
-    <color name="colorSecondaryText">#252020</color>
+    <color name="colorPrimaryText">#FFEE58</color>
+    <color name="colorSecondaryText">#360A0A</color>
     <color name="colorTextAccent">#EF5350</color>
     <color name="colorPrimaryButton">#FF7043</color>
     <color name="colorSecondaryButton">#9CCC65</color>

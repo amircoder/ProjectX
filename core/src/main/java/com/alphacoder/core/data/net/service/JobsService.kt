@@ -14,4 +14,10 @@ interface JobsService {
     ): Observable<List<JobItemResponse>>
 
 
+
+    @GET("positions.json")
+    fun getJobs(
+        @Query("description") description: String
+    ): Observable<List<JobItemResponse>>
+
 }

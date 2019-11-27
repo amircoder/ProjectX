@@ -43,24 +43,12 @@
     <dimen name="default_toolbar_separator_height">40dp</dimen>
 
     <dimen name="product_list_image_size">104dp</dimen>
-    <dimen name="carousel_image_size">80dp</dimen>
     <dimen name="gallery_image_size">176dp</dimen>
     <dimen name="bom_product_image_size">48dp</dimen>
     <dimen name="product_fulfilment_icon_size">40dp</dimen>
-    <dimen name="bom_product_dialog_image_size">64dp</dimen>
-    <dimen name="product_widget_image_size">80dp</dimen>
-    <dimen name="product_reviews_header_elevation">4dp</dimen>
-    <dimen name="add_to_basket_button_elevation">20dp</dimen>
 
-    <dimen name="product_list_sort_menu_padding">50dp</dimen>
 
     <dimen name="loader_size">45dp</dimen>
-    <!-- TODO [Voicu] get rid of these if we come up with a different solution for the header animation. -->
-    <dimen name="margin_search_height_expanded">94dp</dimen>
-    <dimen name="margin_search_height_collapsed">54dp</dimen>
-    <dimen name="map_peek_height">100dp</dimen>
-    <dimen name="store_details_map_height">180dp</dimen>
-    <dimen name="location_loader_size">16dp</dimen>
 
     <!--Primary Button Heights-->
     <dimen name="default_button_height">40dp</dimen>
@@ -71,32 +59,8 @@
 
     <dimen name="large_button_height">52dp</dimen>
     <dimen name="button_small_height">48dp</dimen>
+    <dimen name="large_button_width">188dp</dimen>
 
-    <dimen name="basket_item_quantity_edittext_expanded_touch_area">14dp</dimen>
-
-    <dimen name="basket_footer_text_links_expanded_touch_area">14dp</dimen>
-
-    <item name="club_card_height_scaling_factor" format="float" type="dimen">0.61</item>
-    <dimen name="club_card_corner_radius">12dp</dimen>
-    <dimen name="club_card_padding">20dp</dimen>
-    <dimen name="club_card_elevation">4dp</dimen>
-    <dimen name="add_to_basket_button_margin">14dp</dimen>
-    <dimen name="primary_button_top_bottom_margin">10dp</dimen>
-    <dimen name="primary_button_start_end_margin">12dp</dimen>
-    <dimen name="add_to_basket_quantity_edit_text_width">48dp</dimen>
-    <dimen name="add_to_basket_quantity_edit_text_height">40dp</dimen>
-    <dimen name="store_finder_title_top_bottom_margin">12dp</dimen>
-    <dimen name="store_finder_favourite_store_button_start_end_margin">36dp</dimen>
-
-    <dimen name="edit_personal_details_edit_text_height">66dp</dimen>
-    <dimen name="address_lookup_bottomlayout_marginTop">40dp</dimen>
-    <dimen name="address_lookup_matches_item_height">76dp</dimen>
-    <dimen name="edit_personal_details_cta_height">40dp</dimen>
-
-    <dimen name="in_store_map_product_image_height">64dp</dimen>
-
-    <dimen name="product_dialog_variants_variant_view_width">124dp</dimen>
-    <dimen name="product_dialog_variants_variant_view_height">86dp</dimen>
 
     <dimen name="general_header_height">48dp</dimen>
 

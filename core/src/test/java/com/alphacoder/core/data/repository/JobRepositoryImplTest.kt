@@ -6,39 +6,30 @@ import com.alphacoder.core.data.datasource.local.JobListLocalDataSource
 import com.alphacoder.core.data.datasource.remote.JobListRemoteDataSource
 import com.alphacoder.core.data.mapper.JobMapper
 import com.alphacoder.core.domain.model.JobItem
-import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.given
+import com.nhaarman.mockitokotlin2.then
 import io.reactivex.Observable
-import io.reactivex.Scheduler
 import io.reactivex.observers.TestObserver
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyString
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.plugins.RxJavaPlugins
-
-
 
 
 @RunWith(MockitoJUnitRunner::class)
-class JobRepositoryImplTest {
+class JobRepositoryImplTestX {
 
     @Mock
-    lateinit var remoteDataSource: JobListRemoteDataSource
+    lateinit var mockRemoteDataSource: JobListRemoteDataSource
     @Mock
-    lateinit var localDataSource: JobListLocalDataSource
+    lateinit var mockLocalDataSource: JobListLocalDataSource
     @Mock
     lateinit var mapper: JobMapper
     @InjectMocks
     lateinit var subject: JobRepositoryImpl
 
-    private lateinit var result: Observable<ResultResponse<List<JobItem>, Throwable>>
-    private val testResponse = ResultResponse.Success(SOME_JOB_ITEM_RESULT, Throwable())
     private val testObserver = TestObserver<ResultResponse<List<JobItem>, Throwable>>()
 
 
@@ -47,28 +38,14 @@ class JobRepositoryImplTest {
         givenMapperOutputIsSuccessful()
     }
 
-
-//    private fun setUpUsingTestSchedulers() {
-//        subject = JobRepositoryImpl(
-//            remoteDataSource,
-//            localDataSource, mapper
-//        )
-//    }
-
-//    private fun setUpUsingImmediateSchedulers() {
-//        subject = JobRepositoryImpl(
-//            remoteDataSource,
-//            localDataSource, immediateSchedulerProvider
-//        )
-//    }
-
-
     @Test
-    fun whenOnGetGetJobListing_givenRemoteDataIsAvailable_andGivenLocalDataIsAvailable_thenResponseIsSuccessful() {
+    fun `whenOnGetGetJobListing givenRemoteDataIsAvailable andGivenLocalDataIsAvailable thenRemoteDataSourceGetJobListingCalled andThenLocalDataSourceGetJobListingCalled`() {
         givenLocalResponseIsSuccess()
         givenRemoteResponseIsSuccess()
         whenOnGetGetJobListing()
-        thenResponseIsSuccessful()
+        thenRemoteDataSourceGetJobListingCalled()
+        thenLocalDataSourceGetJobListingCalle()
+        thenResultIsSuccessful()
     }
 
 
@@ -76,17 +53,23 @@ class JobRepositoryImplTest {
      * GIVEN
      */
     private fun givenRemoteResponseIsSuccess() {
-        given(remoteDataSource.getJobListing(anyString(), anyString()))
-            .willReturn(Observable.just(SOME_JOB_RESPONSE_TEMS))
+        given(mockRemoteDataSource.getJobListing(SOME_DESCRIPTION, SOME_LOCATION))
+            .willReturn(Observable.just(SOME_JOB_RESPONSE_ITEMS))
     }
 
     private fun givenLocalResponseIsSuccess() {
-        given(localDataSource.getJobListing())
-            .willReturn(Observable.just(SOME_OTHER_JOB_RESPONSE_TEMS))
+        given(mockLocalDataSource.getJobListing(SOME_DESCRIPTION, SOME_LOCATION))
+            .willReturn(Observable.just(SOME_OTHER_JOB_RESPONSE_ITEMS))
     }
 
     private fun givenMapperOutputIsSuccessful() {
-        given(mapper.map(any())).willReturn(ResultResponse.Success(SOME_JOB_ITEM_RESULT, Throwable()))
+        given(mapper.map(SOME_JOB_RESPONSE_ITEMS)).willReturn(
+            mapResponse
+        )
+
+        given(mapper.map(SOME_OTHER_JOB_RESPONSE_ITEMS)).willReturn(
+            mapResponse
+        )
     }
 
 
@@ -98,19 +81,25 @@ class JobRepositoryImplTest {
             SOME_DESCRIPTION,
             SOME_LOCATION
         ).subscribe(testObserver)
-
     }
 
 
     /**
      * THEN
      */
-    private fun thenResponseIsSuccessful() {
-        testObserver.assertComplete()
-        testObserver.assertValue(testResponse)
-
+    private fun thenLocalDataSourceGetJobListingCalle() {
+        then(mockLocalDataSource).should().getJobListing(SOME_DESCRIPTION, SOME_LOCATION)
     }
 
+    private fun thenRemoteDataSourceGetJobListingCalled() {
+        then(mockRemoteDataSource).should().getJobListing(SOME_DESCRIPTION, SOME_LOCATION)
+    }
+
+    private fun thenResultIsSuccessful() {
+        testObserver.assertComplete()
+        testObserver.assertNoErrors()
+        testObserver.assertValues(mapResponse, mapResponse)
+    }
 
     /**
      * Helpers

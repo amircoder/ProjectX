@@ -28,9 +28,8 @@ class DataModule {
     @Provides
     @Singleton
     fun provideJobRemoteDataSource(
-        service: JobsService,
-        schedulers: AndroidRxSchedulers
-    ): JobListRemoteDataSource = JobListRemoteDataSourceImpl(service, schedulers)
+        service: JobsService
+    ): JobListRemoteDataSource = JobListRemoteDataSourceImpl(service)
 
     @Provides
     @Singleton

@@ -1,6 +1,13 @@
 apply from: '../common_lib.gradle'
 
 dependencies {
+    api project(":lib_theme")
 
+}
 
+android {
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }

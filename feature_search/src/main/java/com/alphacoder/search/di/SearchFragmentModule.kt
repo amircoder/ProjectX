@@ -1,14 +1,21 @@
 package com.alphacoder.search.di
 
-
 import com.alphacoder.search.presentation.SearchFragment
+import com.alphacoder.search.presentation.list.SearchListAdapter
+import com.alphacoder.search.presentation.list.SearchListAdapterImpl
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import dagger.Provides
 
 @Module
-abstract class SearchFragmentModule {
+class SearchFragmentModule {
 
-    @ContributesAndroidInjector
-    abstract fun ContributeSearchFragment(): SearchFragment
+    @Provides
+    fun provideSearchRecyclerAdapter(adapter: SearchListAdapterImpl)
+            : SearchListAdapter = adapter
+
+    @Provides
+    fun provideSearchAdapterCallback(fragment: SearchFragment)
+            : SearchListAdapter.Callback = fragment
+
 
 }

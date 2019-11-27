@@ -3,7 +3,7 @@ package com.alphacoder.core.di
 import com.alphacoder.core.domain.repository.JobRepository
 import com.alphacoder.core.domain.usecase.JobUseCase
 import com.alphacoder.core.domain.usecase.JobUseCaseImpl
-import com.twistedequations.rx2.AndroidRxSchedulers
+import com.alphacoder.core.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -15,7 +15,7 @@ class UseCaseModule {
     @Singleton
     fun provideJobUseCase(
         jobRepository: JobRepository,
-        schedulers: AndroidRxSchedulers
+        schedulers: SchedulerProvider
     ): JobUseCase = JobUseCaseImpl(
         jobRepository,
         schedulers

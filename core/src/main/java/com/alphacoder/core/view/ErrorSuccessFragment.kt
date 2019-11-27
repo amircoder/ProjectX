@@ -3,7 +3,7 @@ package com.alphacoder.core.view
 import android.os.Bundle
 import android.view.View
 import com.alphacoder.core.base.BaseFragment
-import com.alphacoder.view.ErrorSuccessCallback
+import com.alphacoder.core.callback.view.ErrorSuccessCallback
 
 abstract class ErrorSuccessFragment : BaseFragment(), ErrorSuccessCallback {
 
@@ -21,6 +21,14 @@ abstract class ErrorSuccessFragment : BaseFragment(), ErrorSuccessCallback {
     abstract fun initViewListeners()
     abstract fun initObservers()
 
+    open fun onErrorAction() {
+
+    }
+
+    open fun onEmptyAction() {
+
+    }
+
     override fun showLoadingSpinner() {
         (activity as ErrorSuccessActivity).showLoadingSpinner()
     }
@@ -29,14 +37,18 @@ abstract class ErrorSuccessFragment : BaseFragment(), ErrorSuccessCallback {
         (activity as ErrorSuccessActivity).hideLoadingSpinner()
     }
 
-    override fun displayServerErrorMessage() {
-        (activity as ErrorSuccessActivity).displayServerErrorMessage()
+    override fun displayGenericErrorMessage() {
+        (activity as ErrorSuccessActivity).displayGenericErrorMessage()
     }
 
     override fun displayNetworkErrorMessage() {
         (activity as ErrorSuccessActivity).displayNetworkErrorMessage()
     }
 
+    override fun displayCustomError(title: String, msg: String){
+        (activity as ErrorSuccessActivity).displayCustomError(title, msg)
+
+    }
 
 
 }

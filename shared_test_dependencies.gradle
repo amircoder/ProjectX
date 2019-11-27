@@ -1,11 +1,10 @@
 dependencies {
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
 
 
     // Required for instrumented tests
-    testImplementation 'junit:junit:4.12'
+//    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     testImplementation 'com.google.truth:truth:0.44'
     testImplementation 'org.mockito:mockito-inline:3.0.0'
     androidTestImplementation 'org.mockito:mockito-inline:3.0.0'
@@ -15,17 +14,34 @@ dependencies {
     testImplementation 'androidx.test:runner:1.2.0'
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1'
 
+
     // Set this dependency to use JUnit 4 rules
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+
 
     testImplementation "org.powermock:powermock-api-mockito2:$powermockVersion"
     testImplementation "org.powermock:powermock-module-junit4:$powermockVersion"
     testImplementation "org.assertj:assertj-core:$assertjVersion"
-    testImplementation  "com.squareup.assertj:assertj-android:$assertjAndroidVersion"
-    androidTestImplementation "org.robolectric:robolectric:$robolectricVersion"
-    androidTestImplementation "org.robolectric:shadows-play-services:$robolectricShadowsVersion"
+    testImplementation ("com.squareup.assertj:assertj-android:$assertjAndroidVersion"){
+        exclude group: "xmlpull"
+    }
+
+    androidTestImplementation ("org.robolectric:robolectric:$robolectricVersion"){
+        exclude group: "org.apache.maven.wagon"
+        exclude group: "org.apache.maven"
+        exclude group: "xmlpull"
+        exclude group: "xpp3"
+
+    }
+    androidTestImplementation ("org.robolectric:shadows-play-services:$robolectricShadowsVersion"){
+        exclude group: "org.apache.maven.wagon"
+        exclude group: "org.apache.maven"
+        exclude group: "xmlpull"
+        exclude group: "xpp3"
+    }
     testImplementation "io.mockk:mockk:$mockKVersion"
 
 }

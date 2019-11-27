@@ -2,14 +2,15 @@ package com.alphacoder.core.data.model.job
 
 
 import androidx.room.Entity
+import com.alphacoder.core.AppConstant
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "jobs", primaryKeys = arrayOf("id"))
+@Entity(tableName = AppConstant.TABLE_NAME_JOB, primaryKeys = arrayOf("id"))
 data class JobItemResponse(
     @SerializedName("company")
     var company: String = "",
     @SerializedName("company_logo")
-    var companyLogo: String = "",
+    var companyLogo: String? = "",
     @SerializedName("company_url")
     var companyUrl: String? = "",
     @SerializedName("created_at")
@@ -25,7 +26,7 @@ data class JobItemResponse(
     @SerializedName("title")
     var title: String = "",
     @SerializedName("type")
-    var type: String = "",
+    var type: String? = "",
     @SerializedName("url")
-    var url: String = ""
+    var url: String? = ""
 )

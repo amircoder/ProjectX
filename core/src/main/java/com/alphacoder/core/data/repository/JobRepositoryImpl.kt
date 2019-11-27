@@ -19,23 +19,26 @@ class JobRepositoryImpl @Inject constructor(
         description: String,
         location: String
     ): Observable<ResultResponse<List<JobItem>, Throwable>> =
-
-        Observable.concatArrayEager(remote(description, location), local())
-            .startWith {
-                ResultResponse.Loading<List<JobItem>, Throwable>()
-            }
+        Observable.
+            concatArrayEager(local(description, location), remote(description, location))
             .map(mapper::map)
 
 
+    private val remote =
+        { description: String, location: String ->
+            remoteDataSource.getJobListing(description, location)
+                .doOnNext { items ->
+                    localDataSource.insertOrUpdate(items)
+                }
+        }
 
-    private val remote = { description: String, location: String ->
-        remoteDataSource.getJobListing(description, location)
-            .doOnNext { items ->
-                localDataSource.insertOrUpdate(items)
+    private val local =
+        { description: String, location: String ->
+            if (location.isEmpty()) {
+                localDataSource.getJobListing(description)
+            } else {
+                localDataSource.getJobListing(description, location)
             }
-    }
+        }
 
-    private val local = {
-        localDataSource.getJobListing()
-    }
 }

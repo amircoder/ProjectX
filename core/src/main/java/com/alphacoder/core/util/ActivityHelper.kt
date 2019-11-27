@@ -1,10 +1,14 @@
 package com.alphacoder.core.util
 
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat
 
+/**
+ * This is a work around to reference and launch activities from each other
+ * without violating dependency rule of modular clean architecture.
+ * to accommodate this goal we use string constants of each activity
+ * to create the [Intent] object associated to that activity.
+ */
 
 private const val PACKAGE_NAME = "com.alphacoder"
 

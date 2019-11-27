@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.alphacoder.core.di.ViewModelKey
 import com.alphacoder.core.factory.AppViewModelFactory
-import com.alphacoder.search.presentation.viewmodel.SearchViewModel
+import com.alphacoder.search.presentation.SearchViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

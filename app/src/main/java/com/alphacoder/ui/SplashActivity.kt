@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
+import com.alphacoder.core.extension.makeFullScreen
 import com.alphacoder.core.util.Activities
 import com.alphacoder.core.util.intentTo
 
@@ -16,12 +17,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-        this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        this.makeFullScreen()
 
         super.onCreate(savedInstanceState)
 

@@ -2,39 +2,41 @@ package com.alphacoder.core.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import com.alphacoder.core.R
 import com.alphacoder.core.base.BaseActivity
 import com.alphacoder.core.extension.hide
 import com.alphacoder.core.extension.show
-import com.alphacoder.view.ErrorSuccessCallback
+import com.alphacoder.core.callback.view.ErrorSuccessCallback
+import com.alphacoder.core.extension.makeFullScreen
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_error_success_content.*
 import javax.inject.Inject
 
-abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback{
+abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback {
 
     internal companion object {
         internal const val VIEW_INDEX_CONTENT = 0
         internal const val VIEW_INDEX_ERROR = 1
     }
 
-
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     protected abstract val contentResourceId: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+        this.makeFullScreen()
 
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
 
         setContentView(R.layout.activity_error_success_content)
         errorContentContainer.addView(layoutInflater.inflate(contentResourceId, null))
     }
+
 
 
     open fun onErrorAction() {
@@ -55,7 +57,7 @@ abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback{
         errorLoadingView.hide()
     }
 
-    override fun displayServerErrorMessage() {
+    override fun displayGenericErrorMessage() {
         showErrorScreen(
             getString(R.string.generic_fail_title),
             getString(R.string.generic_network_error),
@@ -67,6 +69,14 @@ abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback{
         showErrorScreen(
             getString(R.string.generic_fail_title),
             getString(R.string.generic_network_error),
+            getString(R.string.generic_error_button_text)
+        )
+    }
+
+    override fun displayCustomError(title: String, msg: String) {
+        showErrorScreen(
+            title,
+            msg,
             getString(R.string.generic_error_button_text)
         )
     }

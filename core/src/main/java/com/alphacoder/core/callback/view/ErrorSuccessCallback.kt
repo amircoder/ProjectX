@@ -1,8 +1,9 @@
-package com.alphacoder.view
+package com.alphacoder.core.callback.view
 
 interface ErrorSuccessCallback {
     fun showLoadingSpinner()
     fun hideLoadingSpinner()
-    fun displayServerErrorMessage()
+    fun displayGenericErrorMessage()
     fun displayNetworkErrorMessage()
+    fun displayCustomError(title: String, msg: String)
 }

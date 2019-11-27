@@ -52,6 +52,12 @@
         <item name="android:background">@color/colorGold80</item>
     </style>
 
+    <style name="MainTheme.WithFont.Container.Item">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:padding">@dimen/margin_small</item>
+    </style>
+
     <!--Button-->
     <style name="MainTheme.WithFont.BaseButton">
         <item name="android:textStyle">bold</item>

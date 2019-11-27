@@ -4,26 +4,27 @@ import com.alphacoder.core.base.BaseUseCase
 import com.alphacoder.core.base.ResultResponse
 import com.alphacoder.core.domain.model.JobItem
 import com.alphacoder.core.domain.repository.JobRepository
-import com.twistedequations.rx2.AndroidRxSchedulers
+import com.alphacoder.core.rx.SchedulerProvider
 import javax.inject.Inject
 
 class JobUseCaseImpl @Inject constructor(
     private val jobRepository: JobRepository,
-    androidRxSchedulers: AndroidRxSchedulers
+    androidSchedulers: SchedulerProvider
 ) : JobUseCase,
     BaseUseCase<ResultResponse<List<JobItem>, Throwable>, List<JobItem>, Throwable>(
-    androidRxSchedulers
-) {
+        androidSchedulers
+    ) {
     override fun execute(
         page: Int,
         description: String,
         location: String,
-        onSuccess: (ResultResponse<List<JobItem>, Throwable>) -> Unit,
-        onFailure: (Throwable) -> Unit
+        callback: JobUseCase.Callback
     ) {
         jobRepository.getJobListing(description, location)
-            .executeUseCase(onSuccess, onFailure)
+            .executeUseCase(
+                { callback.onGetJobsSuccess(it) },
+                { callback.onGetJobsFailure(it) }
+            )
 
     }
-
 }

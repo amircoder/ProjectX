@@ -6,11 +6,11 @@ import androidx.lifecycle.Observer
 
 inline fun <T> LifecycleOwner.observeLiveData(
     data: LiveData<T>,
-    crossinline onChagned: (T) -> Unit
+    crossinline onChanged: (T) -> Unit
 ) {
     data.observe(this, Observer {
         it?.let { value ->
-            onChagned(value)
+            onChanged(value)
         }
     })
 }

@@ -1,10 +1,7 @@
 package com.alphacoder.di
 
 import android.app.Application
-import com.alphacoder.core.di.DataModule
-import com.alphacoder.core.di.PersistenceModule
-import com.alphacoder.core.di.ServiceModule
-import com.alphacoder.core.di.UseCaseModule
+import com.alphacoder.core.di.*
 import com.alphacoder.search.di.SearchActivityBinding
 import dagger.BindsInstance
 import dagger.Component
