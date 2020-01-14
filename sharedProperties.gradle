@@ -1,0 +1,12 @@
+// Loading shared and public app properties
+def sharedPropertiesFile = rootProject.file("sharedProperties.properties")
+def sharedProperties = new Properties()
+sharedProperties.load(new FileInputStream(sharedPropertiesFile))
+
+android {
+    defaultConfig {
+        buildConfigField("String", "TERMS_AND_CONDITIONS_LINK", "${sharedProperties['termsAndConditionsLink']}")
+        buildConfigField("String", "DB_NAME", "${sharedProperties['dataBaseName']}")
+    }
+}
+

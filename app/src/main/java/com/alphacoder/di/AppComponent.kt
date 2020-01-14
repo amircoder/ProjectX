@@ -2,6 +2,7 @@ package com.alphacoder.di
 
 import android.app.Application
 import com.alphacoder.core.di.*
+import com.alphacoder.core.di.scopes.PerApplication
 import com.alphacoder.search.di.SearchActivityBinding
 import dagger.BindsInstance
 import dagger.Component
@@ -10,6 +11,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import javax.inject.Singleton
 
+@PerApplication
 @Singleton
 @Component(
     modules = [

@@ -1,18 +1,13 @@
 package com.alphacoder.core.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.alphacoder.core.R
 import com.alphacoder.core.base.BaseActivity
 import com.alphacoder.core.extension.hide
 import com.alphacoder.core.extension.show
 import com.alphacoder.core.callback.view.ErrorSuccessCallback
 import com.alphacoder.core.extension.makeFullScreen
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
 import kotlinx.android.synthetic.main.activity_error_success_content.*
-import javax.inject.Inject
 
 abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback {
 
@@ -21,23 +16,14 @@ abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback {
         internal const val VIEW_INDEX_ERROR = 1
     }
 
-    @Inject
-    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
-
     protected abstract val contentResourceId: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         this.makeFullScreen()
-
         super.onCreate(savedInstanceState)
-        AndroidInjection.inject(this)
-
         setContentView(R.layout.activity_error_success_content)
         errorContentContainer.addView(layoutInflater.inflate(contentResourceId, null))
     }
-
-
 
     open fun onErrorAction() {
 
@@ -46,7 +32,6 @@ abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback {
     open fun onEmptyAction() {
 
     }
-
 
     override fun showLoadingSpinner() {
         switchToView(VIEW_INDEX_CONTENT)
@@ -92,8 +77,6 @@ abstract class ErrorSuccessActivity : BaseActivity(), ErrorSuccessCallback {
             }
         }
     }
-
-
 
 
 }

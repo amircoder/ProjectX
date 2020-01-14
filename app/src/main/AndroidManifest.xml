@@ -10,13 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.alphacoder.app.MainApp"
-        android:theme="@style/AppTheme">
+        android:name="com.alphacoder.app.MainApp">
         <activity android:name="com.alphacoder.ui.SplashActivity"
-            android:theme="@style/AppTheme.launcher"
-            >
+            android:theme="@style/AppTheme.launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

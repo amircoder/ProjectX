@@ -1,7 +1,4 @@
 dependencies {
-
-
-
     // Required for instrumented tests
 //    testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -12,7 +9,8 @@ dependencies {
     // androidTestImplementation "org.mockito:mockito-android:+"
     testImplementation 'androidx.annotation:annotation:1.1.0'
     testImplementation 'androidx.test:runner:1.2.0'
-    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-RC1'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    testImplementation arch.coreTest
 
 
     // Set this dependency to use JUnit 4 rules
@@ -22,26 +20,26 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 
 
-    testImplementation "org.powermock:powermock-api-mockito2:$powermockVersion"
-    testImplementation "org.powermock:powermock-module-junit4:$powermockVersion"
-    testImplementation "org.assertj:assertj-core:$assertjVersion"
-    testImplementation ("com.squareup.assertj:assertj-android:$assertjAndroidVersion"){
+    testImplementation powerMock.powermockApiMockito2
+    testImplementation powerMock.powermockJunit4
+    testImplementation assertj.asserjCore
+    testImplementation (assertjAndroid.assertjAndroid){
         exclude group: "xmlpull"
     }
 
-    androidTestImplementation ("org.robolectric:robolectric:$robolectricVersion"){
+    androidTestImplementation (robolectricVersion.robolectric){
         exclude group: "org.apache.maven.wagon"
         exclude group: "org.apache.maven"
         exclude group: "xmlpull"
         exclude group: "xpp3"
 
     }
-    androidTestImplementation ("org.robolectric:shadows-play-services:$robolectricShadowsVersion"){
+    androidTestImplementation (roboelctricShadowVersion.shadowsPlayServices){
         exclude group: "org.apache.maven.wagon"
         exclude group: "org.apache.maven"
         exclude group: "xmlpull"
         exclude group: "xpp3"
     }
-    testImplementation "io.mockk:mockk:$mockKVersion"
+    testImplementation mockk.mockk
 
 }

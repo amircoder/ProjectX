@@ -1,25 +1,122 @@
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply from: '../dependencies.gradle'
 apply from: '../shared_dependencies.gradle'
 apply from: '../shared_test_dependencies.gradle'
+apply from: '../sharedProperties.gradle'
+
+
+// Loading key store credentials file
+def keystorePropertiesFile = rootProject.file("keyStore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+// Loading private app properties
+def appFile = rootProject.file("appProperties.properties")
+def appProperties = new Properties()
+appProperties.load(new FileInputStream(appFile))
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.0"
+    compileSdkVersion app.compileSdkVersion
+    buildToolsVersion app.buildToolsVersion
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.applicationVersionCode
+        versionName app.applicationVersionName
+        testApplicationId app.applicationId
+        resValue "string", "app_name", "Project X"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [deepLinkScheme : appProperties['deepLinkScheme'],
+                                deepLinkHost : appProperties['deepLinkHost']]
     }
-    buildTypes {
-        release {
+
+    testOptions {
+//        reportDir "$rootDir/test-reports"
+//        resultsDir "$rootDir/test-results"
+    }
+
+    // set different deep link schemes for different product flavors
+    flavorDimensions 'version'
+    productFlavors {
+        dev {
+            dimension = "version"
+            resConfigs "en", "xxhdpi"
+            resValue "string", "app_name", "Development Project x"
+            manifestPlaceholders = [deepLinkScheme : "projectxdevscheme",
+                                    deepLinkHost : "deep.project.x"]
+        }
+        play {
+            dimension = "version"
+            resValue "string", "app_name", "Project x"
+
+        }
+        demo {
+            dimension = "version"
+            resConfigs "en", "xxhdpi"
+            resValue "string", "app_name", "Demo Project x"
+
+        }
+
+
+    }
+
+    // Filters out unnecessary product flavors
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        // To check for a build type instead, use variant.buildType.name == "buildType"
+        if (names.contains("demo") || names.contains("play")) {
+            // Gradle ignores any variants that satisfy the conditions above.
+            setIgnore(true)
         }
     }
+
+    // Sign in credentials
+    // To change Sign in credentials go to keyStore.properties
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            buildConfigField("String", "BASE_URL", "${appProperties['releaseBaseUrl']}")
+        }
+        debug {
+//            ext.enableCrashlytics = false
+            buildConfigField("String", "BASE_URL", "${appProperties['debugBaseUrl']}")
+            ext.alwaysUpdateBuildId = false
+            debuggable true
+        }
+    }
+
+    // Avoids multiple APKs on debug mode and some other settings to speed up build
+    if (project.hasProperty("devDebug") || project.hasProperty("demoDebug") || project.hasProperty("playDebug")) {
+        splits.api.splits = false
+        splits.density.splits = false
+        aaptOptions.cruncherEnabled = false //disable crunching
+    }
+
+    // Creates multiple APK for different ABIs plus a universal APK included
+    splits {
+        abi {
+            enable true
+            reset()
+            include "x86", "armeabi-v7a", "mips"
+            universalApk true
+        }
+    }
+
+
 }
 
 dependencies {
 
 }
+

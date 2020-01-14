@@ -14,7 +14,7 @@ interface JobUseCase:
 
 
     /*
-    Prefer using callbacks instead of higher order functions for easier testability
+    I preferred use of callbacks instead of higher order functions considering better testability
      */
     interface Callback {
         fun onGetJobsSuccess(data: ResultResponse<List<JobItem>, Throwable>)

@@ -1,11 +1,13 @@
 package com.alphacoder.search.presentation
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.alphacoder.core.extension.makeFullScreen
 import com.alphacoder.core.view.ErrorSuccessActivity
+import com.alphacoder.feature_search.BuildConfig
 import com.alphacoder.feature_search.R
 import dagger.android.AndroidInjector
 import dagger.android.support.HasSupportFragmentInjector

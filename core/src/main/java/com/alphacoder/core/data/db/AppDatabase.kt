@@ -6,6 +6,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alphacoder.core.AppConstant
+import com.alphacoder.core.BuildConfig
 import com.alphacoder.core.data.datasource.local.dao.JobDao
 import com.alphacoder.core.data.model.job.JobItemResponse
 
@@ -23,7 +24,7 @@ abstract class AppDatabase: RoomDatabase() {
             Room.databaseBuilder(
                 context,
                 AppDatabase::class.java,
-                AppConstant.DATABASE_NAME
+                BuildConfig.DB_NAME
             ).allowMainThreadQueries().build()
 
         fun getTestInstance(context: Context)

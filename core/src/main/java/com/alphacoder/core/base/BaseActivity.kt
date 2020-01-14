@@ -2,20 +2,24 @@ package com.alphacoder.core.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import com.alphacoder.view.ThemeProvider
+import dagger.android.AndroidInjection
+import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 
 abstract class BaseActivity: AppCompatActivity() {
 
 
-//    @Inject
-//    lateinit var themeProvider: ThemeProvider
-
+    @Inject
+    lateinit var themeProvider: ThemeProvider
+    @Inject
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        applyThem()
+        AndroidInjection.inject(this)
+        applyTheme()
     }
 
 
@@ -35,9 +39,8 @@ abstract class BaseActivity: AppCompatActivity() {
         // TODO: Some global operation here
     }
 
-    private fun applyThem() {
-        // TODO: get theme from theme provider
-//        setTheme(themeProvider.getTheme())
+    private fun applyTheme() {
+        setTheme(themeProvider.theme)
     }
 
 

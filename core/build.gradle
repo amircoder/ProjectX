@@ -2,7 +2,7 @@ apply from: '../common_lib.gradle'
 
 dependencies {
     api project(":lib_theme")
-
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 }
 
 android {
@@ -10,4 +10,23 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+
+}
+
+configurations {
+    unitTestArtifact
+}
+
+
+// FIXME: Work-around to allow kotlin test classes to be accessible from the expected test dir
+// FIXME: This is supposed to be fixed in later version of gradle at some point.
+task copyKotlinTestClasses(type: Copy, dependsOn: "assembleDebugUnitTest") {
+    from "$buildDir/tmp/kotlin-classes/debugUnitTest"
+    into "$buildDir/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes"
+}
+
+task jarTests(type: Jar, dependsOn: "copyKotlinTestClasses") {
+    classifier = 'tests'
+    from "$buildDir/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes"
 }

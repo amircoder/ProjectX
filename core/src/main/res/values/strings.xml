@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">core</string>
+<!--    <string name="app_name">ProjectX</string>-->
+    <string name="app_name_debug">ProjectX Debug</string>
+    <string name="app_name_final">ProjectX Final</string>
     <string name="please_try_again">Please Try Again</string>
     <string name="generic_fail_title">fail</string>
     <string name="generic_network_error">error network</string>

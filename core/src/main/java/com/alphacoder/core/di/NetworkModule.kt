@@ -2,7 +2,7 @@ package com.alphacoder.core.di
 
 import android.content.Context
 import androidx.annotation.NonNull
-import com.alphacoder.core.AppConstant
+import com.alphacoder.core.BuildConfig
 import com.alphacoder.core.util.NetworkInterceptor
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -41,7 +41,7 @@ class NetworkModule {
 
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl(AppConstant.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
 //            .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

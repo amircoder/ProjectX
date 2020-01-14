@@ -3,3 +3,38 @@ apply from: '../common_feature.gradle'
 dependencies {
 
 }
+
+
+task copyFile(type: Copy) {
+    group 'taskGroup1'
+    from '/Users/mac/Downloads/33420.pdf'
+    into '/Users/mac/Downloads/CopiedFileOverHere'
+}
+
+task deleteCopiedFile(type: Delete){
+    doFirst {
+
+    }
+
+    doLast {
+
+    }
+    dependsOn 'copyFile'
+    group 'taskGroup1'
+    delete '/Users/mac/Downloads/CopiedFileOverHere/33420.pdf'
+}
+
+task zipFinalFile(type: Zip){
+    from '/Users/mac/Downloads/CopiedFileOverHere/33420.pdf'
+    destinationDir = file('/Users/mac/Downloads/CopiedFileOverHere/')
+    archiveName = 'copiedzip.zip'
+    dependsOn 'copyFile'
+
+}
+
+deleteCopiedFile.onlyIf {
+    project.hasProperty('pleaseDeleteCopiedFile')
+}
+
+
+

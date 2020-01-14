@@ -3,8 +3,6 @@ package com.alphacoder.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.Window
-import android.view.WindowManager
 import com.alphacoder.core.extension.makeFullScreen
 import com.alphacoder.core.util.Activities
 import com.alphacoder.core.util.intentTo
@@ -25,6 +23,7 @@ class SplashActivity : AppCompatActivity() {
         supportActionBar?.apply { hide() }
 
         startListing()
+
 
     }
 

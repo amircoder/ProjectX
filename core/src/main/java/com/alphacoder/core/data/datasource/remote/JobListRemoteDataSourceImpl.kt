@@ -12,11 +12,10 @@ class JobListRemoteDataSourceImpl @Inject constructor(
     override fun getJobListing(
         description: String,
         location: String
-    ): Observable<List<JobItemResponse>> {
-        return if (location.isBlank())
+    ): Observable<List<JobItemResponse>> =
+        if (location.isBlank())
             jobService.getJobs(description)
         else
-            jobService.getJobs(description , location)
-    }
+            jobService.getJobs(description, location)
 
 }
