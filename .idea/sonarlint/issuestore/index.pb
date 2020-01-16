@@ -239,3 +239,9 @@ q
 Acore/src/main/java/com/alphacoder/core/di/scopes/PerActivity.java,f/7/f7846cbbe35911765ddc0217ba4b5de16f39d617
 C
 dependencies.gradle,9/2/9282de42fdd92f96bfdaa8eed76823d133cf1624
+T
+$core/src/main/res/values/strings.xml,7/8/785ee5d61af33f112e8234332a28404c115349be
+^
+.feature_search/src/main/res/values/strings.xml,c/0/c05e332402e0678eb93d5d77818db68e3f9ea55f
+G
+.idea/scopes/gradle.xml,a/f/afc50c0d91076ef9c5910c9381bd37d88f3e5368
