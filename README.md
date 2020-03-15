@@ -2,12 +2,6 @@
 A sample code-base showcasing MVVM Clean Architecture with a multi-module desing developed using TDD approach.
 
 
-Build Status
-
-Basic app that demonstrates using Dagger in MVVM app that follows Clean Architecture, RxJava and developed based on TDD approached.
-
-The source code in this repo accompanies my article https://proandroiddev.com/mvvm-architecture-using-livedata-rxjava-and-new-dagger-android-injection-639837b1eb6c
-
 License
 
 Copyright 2020 Amir Naghavi
