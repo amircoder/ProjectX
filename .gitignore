@@ -12,3 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/
+/app/
+keyStore.properties
+appProperties.properties
