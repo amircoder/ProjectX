@@ -8,4 +8,7 @@
     <string name="generic_error_button_text">retry</string>
     <string name="submit">Submit</string>
     <string name="job_list">List of jobs…</string>
+    <string name="fill_neccessary_fields_and_try_again">Please fill necessary fields and try again</string>
+    <string name="no_jobs">No Jobs !</string>
+    <string name="search_hint">Example: IOS @ %s</string>
 </resources>

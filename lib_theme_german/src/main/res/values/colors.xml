@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="german_primaryBrand">#FBC02D</color>
+    <color name="german_primaryBrandDark">#FFEB3B</color>
+    <color name="german_primaryBrandLight">#FFF9C4</color>
+    <color name="german_accentColor">#F57C00</color>
+
+    <color name="german_primaryTextColor">#212121</color>
+    <color name="german_secondaryTextColor">#5D4037</color>
+
+
+</resources>

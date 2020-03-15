@@ -17,6 +17,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 
+
 }
 
 allprojects {
@@ -25,7 +26,7 @@ allprojects {
         maven { url 'https://maven.google.com' }
         google()
         jcenter()
-        maven { url  "http://dl.bintray.com/twistedequations/maven"}
+        maven { url "http://dl.bintray.com/twistedequations/maven" }
     }
 }
 

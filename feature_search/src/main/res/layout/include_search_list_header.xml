@@ -4,11 +4,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout style="@style/MainTheme.WithFont.Container.Header">
+    <LinearLayout
+
+        style="@style/MainTheme.WithFont.Container.Header">
 
         <TextView
             android:id="@+id/searchListHeaderTitleTextView"
-            style="@style/MainTheme.WithFont.Text.Header3"
+            style="@style/MainTheme.WithFont.Text.Header2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

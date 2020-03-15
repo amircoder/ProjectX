@@ -1,32 +1,10 @@
 
-Jkotlin:S14812"-Remove this unused "location" local variable.(ÀŞİÌüÿÿÿÿ
-Mkotlin:S1481:"0Remove this unused "companyLogo" local variable.(·ïøóÿÿÿÿÿ
-Hkotlin:S1481R"0Remove this unused "description" local variable.(‹ŞşÅ
-Jkotlin:S1481@"-Remove this unused "location" local variable.(”İ‘›úÿÿÿÿ
-Dkotlin:S1481O",Remove this unused "company" local variable.(òĞ±ë
-Fkotlin:S14814")Remove this unused "type" local variable.(‚¦«øÿÿÿÿ
-Kkotlin:S1481<".Remove this unused "createdAt" local variable.(ğÛÄùÿÿÿÿ
-Akotlin:S1481B")Remove this unused "type" local variable.(¥‡È»
-Ikotlin:S14819",Remove this unused "company" local variable.(áŞÁŒıÿÿÿÿ
-Lkotlin:S1481Q"/Remove this unused "companyUrl" local variable.(×ËÑäÿÿÿÿÿ
->kotlin:S14811"'Remove this unused "id" local variable.(æ¼p
-Kkotlin:S1481.".Remove this unused "createdAt" local variable.(®œÚÿıÿÿÿÿ
-Gkotlin:S1481;"/Remove this unused "companyUrl" local variable.(×ØéË
 Mkotlin:S1481P"0Remove this unused "companyLogo" local variable.(³†Ú‘úÿÿÿÿ
-Ekotlin:S1481W"(Remove this unused "url" local variable.(Ç˜°üÿÿÿÿ
-Jkotlin:S1481T"-Remove this unused "location" local variable.(ãüŠªşÿÿÿÿ
-Lkotlin:S1481-"/Remove this unused "companyUrl" local variable.(ÊØóÕúÿÿÿÿ
-Bkotlin:S1481A"*Remove this unused "title" local variable.(°ç ò
-@kotlin:S1481C"(Remove this unused "url" local variable.(ç³æ‚
-Mkotlin:S1481,"0Remove this unused "companyLogo" local variable.(³†Ú‘úÿÿÿÿ
-Hkotlin:S1481/"0Remove this unused "description" local variable.(‹ŞşÅ
-Ekotlin:S14815"(Remove this unused "url" local variable.(Ç˜°üÿÿÿÿ
+Hkotlin:S1481R"0Remove this unused "description" local variable.(‹ŞşÅ
 Lkotlin:S1481S"/Remove this unused "howToApply" local variable.(…ËÙÓùÿÿÿÿ
-Bkotlin:S14813"*Remove this unused "title" local variable.(¹ùÂè
-Lkotlin:S14810"/Remove this unused "howToApply" local variable.(…ËÙÓùÿÿÿÿ
-Gkotlin:S1481>"/Remove this unused "howToApply" local variable.(ãøÇÉ
-Dkotlin:S1481+",Remove this unused "company" local variable.(òĞ±ë
+Ekotlin:S1481W"(Remove this unused "url" local variable.(Ç˜°üÿÿÿÿ
+Dkotlin:S1481O",Remove this unused "company" local variable.(òĞ±ë
 Fkotlin:S1481V")Remove this unused "type" local variable.(‚¦«øÿÿÿÿ
-Hkotlin:S1481="0Remove this unused "description" local variable.(ù½œŒ
 Bkotlin:S1481U"*Remove this unused "title" local variable.(¹ùÂè
-Dkotlin:S1481?"'Remove this unused "id" local variable.(Âà¸¿ÿÿÿÿÿ
+Jkotlin:S1481T"-Remove this unused "location" local variable.(ãüŠªşÿÿÿÿ
+Lkotlin:S1481Q"/Remove this unused "companyUrl" local variable.(×ËÑäÿÿÿÿÿ

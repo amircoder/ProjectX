@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fill_neccessary_fields_and_try_again">Please fill necessary fields and try again</string>
+    <string name="no_jobs">No Jobs !</string>
+    <string name="search_hint">Example: IOS @ %s</string>
+</resources>

@@ -1,56 +1,14 @@
 apply plugin: 'com.android.application'
-apply from: '../common.gradle'
-
+apply from: '../common_app.gradle'
+apply from: rootProject.file("app/config.gradle")
 
 android {
 
-    defaultConfig {
-        applicationId "com.alphacoder.projectx"
-    }
-
-
-
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix "-debug"
-        }
-    }
-
-    productFlavors {
-        dev {
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
-        }
-        play {
-            applicationIdSuffix ".release"
-            versionNameSuffix "-release"
-        }
-        demo {
-            applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
-        }
-
-    }
-
-//    dynamicFeatures = [":feature_about",
-//                       ":feature_account",
-//                       ":feature_login",
-//                       ":feature_search",
-//                       ":feature_detail",
-//                       ":feature_browser"]
 
 
 }
 
 dependencies {
-    api project(":core")
+    // TODO: replace lib_theme with lib_theme_global after fixing test bugs
     api project(":lib_theme")
-    implementation project(":feature_search")
-    implementation project(":feature_detail")
 }

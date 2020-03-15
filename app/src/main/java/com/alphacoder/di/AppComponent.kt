@@ -3,6 +3,7 @@ package com.alphacoder.di
 import android.app.Application
 import com.alphacoder.core.di.*
 import com.alphacoder.core.di.scopes.PerApplication
+import com.alphacoder.detail.di.DetailFragmentBinding
 import com.alphacoder.search.di.SearchActivityBinding
 import dagger.BindsInstance
 import dagger.Component
@@ -24,7 +25,8 @@ import javax.inject.Singleton
         PersistenceModule::class,
         ViewModelFactoryModule::class,
         RxModule::class,
-        SearchActivityBinding::class
+        SearchActivityBinding::class,
+        DetailFragmentBinding::class
     ]
 )
 interface AppComponent: AndroidInjector<DaggerApplication> {

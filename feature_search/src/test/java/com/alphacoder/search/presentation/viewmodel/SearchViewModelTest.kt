@@ -1,6 +1,9 @@
 package com.alphacoder.search.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.alphacoder.core.SOME_PAGE
+import com.alphacoder.core.SOME_SEARCH_DESCRIPTION
+import com.alphacoder.core.SOME_SEARCH_LOCATION
 import com.alphacoder.core.base.ResultResponse
 import com.alphacoder.core.domain.model.JobItem
 import com.alphacoder.core.domain.usecase.JobUseCase
@@ -20,13 +23,8 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class SearchViewModelTest {
     companion object {
-        const val SOME_SEARCH_DESCRIPTION = "IOS"
-        const val SOME_SEARCH_LOCATION = "Germany"
-        const val SOME_PAGE = 1
-
         const val SOME_SEARCH_STRING_WITH_DESCRIPTION_AND_LOCATION =
             "$SOME_SEARCH_DESCRIPTION @ $SOME_SEARCH_LOCATION"
-
     }
 
     @get:Rule
@@ -71,6 +69,5 @@ class SearchViewModelTest {
             subject
         )
     }
-
 
 }

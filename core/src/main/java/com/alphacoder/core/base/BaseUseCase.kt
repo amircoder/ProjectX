@@ -24,13 +24,14 @@ abstract class BaseUseCase<T : ResultResponse<R, U>, R, U : Throwable> construct
 
     override fun cancel() = compositeDisposable.dispose()
 
-    open fun Observable<T>.executeUseCase(
+    open fun Observable<T>.executeUseCaseObserveOnMainSubscribeOnIO(
         onSuccess: (T) -> Unit = onSuccessStub,
         onFailure: (Throwable) -> Unit = onFailureStub
     ) {
         compositeDisposable.clear()
 
 
+        // += means plus assign and simply acts like add method for CompositeDisposable
         compositeDisposable += this
             .subscribeOn(androidSchedulers.ioScheduler)
             .observeOn(androidSchedulers.mainScheduler)
@@ -38,9 +39,7 @@ abstract class BaseUseCase<T : ResultResponse<R, U>, R, U : Throwable> construct
             //         as startwith won't work without this cast, due to it's definition.
             //         to find out more take a look into it's method definitions/signatures.
             .startWith(ResultResponse.Loading<R, U>() as T)
-            .subscribe({
-                onSuccess(it)
-            }, onFailure)
+            .subscribe({ onSuccess(it) }, onFailure)
     }
 
 

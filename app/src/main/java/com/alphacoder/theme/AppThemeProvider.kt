@@ -6,5 +6,5 @@ import com.alphacoder.view.ThemeProvider
 
 class AppThemeProvider: ThemeProvider {
     override val theme: Int
-        get() = R.style.AppTheme
+        get() = R.style.GlobalTheme
 }

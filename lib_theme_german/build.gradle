@@ -1,0 +1,8 @@
+apply from: '../common_lib.gradle'
+
+dependencies {
+
+    api project(":lib_theme")
+
+
+}

@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout style="@style/MainTheme.WithFont.Container.Item">
+    <LinearLayout
+        style="@style/MainTheme.WithFont.Container.Item">
 
         <TextView
             android:id="@+id/jobTitle"
-            style="@style/MainTheme.WithFont.Text.Body1"
+            style="@style/MainTheme.WithFont.Text.Body3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/job_list"
-            android:textColor="@color/colorSecondaryText" />
+            android:text="@string/job_list"/>
     </LinearLayout>
 
     <include

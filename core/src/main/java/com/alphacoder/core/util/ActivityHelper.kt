@@ -75,8 +75,8 @@ object Activities {
         object DetailActivity : AddressableActivity {
             override val className = "$PACKAGE_NAME.detail.ui.DetailActivity"
         }
-    }
 
+    }
 
 
 //    try{

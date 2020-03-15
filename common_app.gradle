@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+apply from: '../common.gradle'
+
+android {
+
+    defaultConfig {
+        applicationId "com.alphacoder.projectx"
+    }
+
+
+//    dynamicFeatures = [":feature_about",
+//                       ":feature_account",
+//                       ":feature_login",
+//                       ":feature_search",
+//                       ":feature_detail",
+//                       ":feature_browser"]
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+
+    productFlavors {
+        eu {
+            applicationIdSuffix ".eu"
+            versionNameSuffix "-eu"
+        }
+
+        usa {
+            applicationIdSuffix ".usa"
+            versionNameSuffix "-usa"
+        }
+
+        mena {
+            applicationIdSuffix ".mena"
+            versionNameSuffix "-mena"
+        }
+        development {
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        play {
+            applicationIdSuffix ".release"
+            versionNameSuffix "-release"
+        }
+        demo {
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+
+
+    }
+
+
+}
+
+
+dependencies {
+    // different flavors of core library for different flavors of app.
+    // Note: Deprecated as of gradle version 3 above, now we could use just usual library implementation/api.
+    euDevApi project(path: ':core', configuration: 'euDev')
+    usaDevApi project(path: ':core', configuration: 'usaDev')
+    menaDevApi project(path: ':core', configuration: 'menaDev')
+    euDemoApi project(path: ':core', configuration: 'euDemo')
+    usaDemoApi project(path: ':core', configuration: 'usaDemo')
+    menaDemoApi project(path: ':core', configuration: 'menaDemo')
+    euPlayApi project(path: ':core', configuration: 'euPlay')
+    usaPlayApi project(path: ':core', configuration: 'usaPlay')
+    menaPlayApi project(path: ':core', configuration: 'menaPlay')
+    implementation project(":feature-splash")
+    implementation project(":feature_search")
+    implementation project(":feature_detail")
+}

@@ -30,7 +30,6 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    
     fun getJob(
         searchInput: String,
         page: Int = 1

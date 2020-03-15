@@ -27,19 +27,22 @@ dependencies {
         exclude group: "xmlpull"
     }
 
-    androidTestImplementation (robolectricVersion.robolectric){
+    testImplementation (robolectricVersion.robolectric){
         exclude group: "org.apache.maven.wagon"
         exclude group: "org.apache.maven"
         exclude group: "xmlpull"
         exclude group: "xpp3"
 
     }
-    androidTestImplementation (roboelctricShadowVersion.shadowsPlayServices){
+    testImplementation (roboelctricShadowVersion.shadowsPlayServices){
         exclude group: "org.apache.maven.wagon"
         exclude group: "org.apache.maven"
         exclude group: "xmlpull"
         exclude group: "xpp3"
     }
     testImplementation mockk.mockk
+
+    // to fix java.lang.NoClassDefFoundError: org/apache/maven/artifact/ant/DependenciesTask
+    testImplementation 'org.apache.maven:maven-ant-tasks:2.1.3'
 
 }

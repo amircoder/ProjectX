@@ -8,7 +8,6 @@ import com.alphacoder.core.data.mapper.JobMapper
 import com.alphacoder.core.data.net.service.JobsService
 import com.alphacoder.core.data.repository.JobRepositoryImpl
 import com.alphacoder.core.domain.repository.JobRepository
-import com.twistedequations.rx2.AndroidRxSchedulers
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -34,5 +33,7 @@ class DataModule {
     @Provides
     @Singleton
     fun provideJobMapper(): JobMapper = JobMapper()
+
+
 
 }

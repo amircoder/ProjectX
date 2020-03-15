@@ -7,6 +7,7 @@ import com.alphacoder.core.data.mapper.JobMapper
 import com.alphacoder.core.domain.model.JobItem
 import com.alphacoder.core.domain.repository.JobRepository
 import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class JobRepositoryImpl @Inject constructor(
@@ -19,9 +20,13 @@ class JobRepositoryImpl @Inject constructor(
         description: String,
         location: String
     ): Observable<ResultResponse<List<JobItem>, Throwable>> =
-        Observable.
-            concatArrayEager(local(description, location), remote(description, location))
-            .map(mapper::map)
+        Observable.concatArrayEagerDelayError(
+                local(description, location),
+                remote(description, location)
+            )
+            .concatMapEagerDelayError ({
+            Observable.just(mapper.map(it))
+        }, true)
 
 
     private val remote =

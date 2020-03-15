@@ -1,15 +1,12 @@
 package com.alphacoder.core.data.db
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.alphacoder.core.AppConstant
 import com.alphacoder.core.BuildConfig
 import com.alphacoder.core.data.datasource.local.dao.JobDao
 import com.alphacoder.core.data.model.job.JobItemResponse
-
 
 @Database(
     entities = [(JobItemResponse::class)] ,

@@ -21,7 +21,7 @@ class JobUseCaseImpl @Inject constructor(
         callback: JobUseCase.Callback
     ) {
         jobRepository.getJobListing(description, location)
-            .executeUseCase(
+            .executeUseCaseObserveOnMainSubscribeOnIO(
                 { callback.onGetJobsSuccess(it) },
                 { callback.onGetJobsFailure(it) }
             )

@@ -101,9 +101,5 @@ class JobRepositoryImplTestX {
         testObserver.assertValues(mapResponse, mapResponse)
     }
 
-    /**
-     * Helpers
-     */
-
 
 }

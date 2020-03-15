@@ -40,31 +40,31 @@ const val SOME_OTHER_DESCRIPTION = "SOME_OTHER_DESCRIPTION"
 const val SOME_OTHER_LOCATION = "SOME_OTHER_LOCATION"
 
 val SOME_JOB_RESPONSE = JobItemResponse().apply {
-    var company: String = SOME_COMPANY
-    var companyLogo: String = SOME_COMPANY_LOGO
-    var companyUrl: String? = SOME_COMPANY_URL
-    var createdAt: String = SOME_CREATED_AT
-    var description: String = SOME_DESCRIPTION
-    var howToApply: String = SOME_HOW_TO_APPLY
-    var id: String = SOME_ID
-    var location: String? = SOME_LOCATION
-    var title: String = SOME_TITLE
-    var type: String = SOME_TYPE
-    var url: String = SOME_URL
+    company = SOME_COMPANY
+    companyLogo = SOME_COMPANY_LOGO
+    companyUrl = SOME_COMPANY_URL
+    createdAt = SOME_CREATED_AT
+    description = SOME_DESCRIPTION
+    howToApply = SOME_HOW_TO_APPLY
+    id = SOME_ID
+    location = SOME_LOCATION
+    title = SOME_TITLE
+    type = SOME_TYPE
+    url = SOME_URL
 }
 
 val SOME_OTHER_JOB_RESPONSE = JobItemResponse().apply {
-    var company: String = SOME_OTHER_COMPANY
-    var companyLogo: String = SOME_OTHER_COMPANY_LOGO
-    var companyUrl: String? = SOME_OTHER_COMPANY_URL
-    var createdAt: String = SOME_OTHER_CREATED_AT
-    var description: String = SOME_OTHER_DESCRIPTION
-    var howToApply: String = SOME_OTHER_HOW_TO_APPLY
-    var id: String = SOME_OTHER_ID
-    var location: String? = SOME_OTHER_LOCATION
-    var title: String = SOME_OTHER_TITLE
-    var type: String = SOME_OTHER_TYPE
-    var url: String = SOME_OTHER_URL
+    company = SOME_OTHER_COMPANY
+    companyLogo = SOME_OTHER_COMPANY_LOGO
+    companyUrl = SOME_OTHER_COMPANY_URL
+    createdAt = SOME_OTHER_CREATED_AT
+    description = SOME_OTHER_DESCRIPTION
+    howToApply = SOME_OTHER_HOW_TO_APPLY
+    id = SOME_OTHER_ID
+    location = SOME_OTHER_LOCATION
+    title = SOME_OTHER_TITLE
+    type = SOME_OTHER_TYPE
+    url = SOME_OTHER_URL
 }
 
 val SOME_JOB_RESPONSE_ITEMS: MutableList<JobItemResponse> = Collections.singletonList(SOME_JOB_RESPONSE)
@@ -94,6 +94,10 @@ val mapResponse = ResultResponse.Success(SOME_JOB_ITEM_RESULT, SOME_THROWABLE)
 /**
  * OTHER
  */
+const val SOME_SEARCH_DESCRIPTION = "IOS"
+const val SOME_SEARCH_LOCATION = "Germany"
 const val SOME_DELAY = 1L
 const val SOME_EMPTY_STRING = ""
 const val SOME_PAGE = 1
+
+

@@ -10,7 +10,7 @@
         android:pivotY="33">
         <!-- todo: add android: fillType="evenOdd" once Robolectric issue #3354 fixed -->
         <path
-            android:fillColor="#EF5350"
+            android:fillColor="@color/colorAccent"
             android:pathData="M65.1871,24.7979 C64.748,23.2067,64.2437,21.6306,63.5959,20.1148
 C62.2834,16.9908,60.488,14.0719,58.3074,11.4789
 C55.9498,8.69283,53.1053,6.29196,49.9541,4.44931

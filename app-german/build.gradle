@@ -1,0 +1,27 @@
+apply plugin: 'com.android.application'
+apply from: '../common.gradle'
+apply from: '../common_app.gradle'
+apply from: rootProject.file("app-german/config.gradle")
+
+android {
+
+    defaultConfig {
+        applicationId "com.alphacoder.projectx"
+    }
+
+
+
+//    dynamicFeatures = [":feature_about",
+//                       ":feature_account",
+//                       ":feature_login",
+//                       ":feature_search",
+//                       ":feature_detail",
+//                       ":feature_browser"]
+
+
+}
+
+dependencies {
+    // TODO: replace lib_theme with lib_theme_global after fixing test bugs
+    api project(":lib_theme")
+}

@@ -3,6 +3,8 @@ package com.alphacoder.core.di
 import android.content.Context
 import androidx.annotation.NonNull
 import com.alphacoder.core.BuildConfig
+import com.alphacoder.core.util.ImageLoader
+import com.alphacoder.core.util.ImageLoaderImpl
 import com.alphacoder.core.util.NetworkInterceptor
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -48,5 +50,8 @@ class NetworkModule {
             .build()
     }
 
+    @Provides
+    @Singleton
+    fun provideImageLoader():ImageLoader = ImageLoaderImpl()
 
 }

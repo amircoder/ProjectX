@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GermanTheme" parent="AppTheme">
+        <item name="themePrimaryBrandColor">@color/german_primaryBrand</item>
+        <item name="themePrimaryBrandDarkColor">@color/german_primaryBrandDark</item>
+        <item name="themeSecondaryBrandColor">@color/secondaryTextColor</item>
+        <item name="themeSecondaryBrandDarkColor">@color/german_accentColor</item>
+        <item name="themeTertiaryBrandColor">@color/secondaryTextColor</item>
+        <item name="themeTertiaryBrandDarkColor">@color/limestone_10</item>
+
+        <item name="brandLogo">@drawable/chuck_ic_https_grey_24dp</item>
+
+        <item name="themeTextColorPrimary">@color/german_primaryTextColor</item>
+
+        <item name="statusBarColor">@color/black</item>
+        <item name="navBarColor">@color/german_primaryBrandLight</item>
+        <item name="navBarIconColor">@color/grey_5</item>
+        <item name="toolbarTitleColor">@color/white</item>
+
+        <item name="tabBarColor">@color/german_primaryBrandLight</item>
+        <item name="bottomTabItemActive">@color/white</item>
+        <item name="bottomTabItemInactive">@color/grey_1</item>
+        <item name="bottomTabBasketItemCountTextColor">@color/white</item>
+
+        <item name="roundButtonCornerRadius">24dp</item>
+        <item name="buttonCornerRadius">0dp</item>
+        <item name="primaryButtonColor">@color/german_primaryBrand</item>
+        <item name="primaryButtonPressedColor">@color/german_primaryBrandDark</item>
+        <item name="primaryButtonRippleColor">@color/german_primaryBrandLight</item>
+        <item name="textButtonColor">@color/german_secondaryTextColor</item>
+        <item name="brandTypeColor">@color/german_secondaryTextColor</item>
+        <item name="brandIconColor">@color/german_secondaryTextColor</item>
+        <item name="reviewStarIconColor">@color/german_accentColor</item>
+
+        <item name="searchBoxBackgroundColor">@color/german_primaryBrandLight</item>
+        <item name="searchBoxTextColorHint">@color/white</item>
+        <item name="searchBoxElevation">0dp</item>
+
+        <item name="homeButtonsBackground">@color/colorGold60</item>
+        <item name="homeButtonBackgroundColor">@color/white</item>
+        <item name="homeButtonIconColor">@color/grey_7</item>
+
+        <item name="starRatingBarSelector">@drawable/chuck_ic_https_grey_24dp</item>
+        <item name="starRatingEmpty">@drawable/chuck_ic_https_grey_24dp</item>
+        <item name="starRatingHalf">@drawable/chuck_ic_https_grey_24dp</item>
+        <item name="starRatingFull">@drawable/chuck_ic_https_grey_24dp</item>
+
+        <item name="loyaltyCardLogo">@drawable/chuck_ic_https_grey_24dp</item>
+        <item name="loyaltyCardBackground">@drawable/chuck_ic_https_grey_24dp</item>
+        <item name="barcodeScannerViewsTextColor">@color/white</item>
+    </style>
+</resources>

@@ -14,6 +14,7 @@ class JobMapper @Inject constructor() {
             jobItemResponses.map { item ->
                 add(
                     JobItem(
+                        item.id,
                         item.company ,
                         item.companyLogo ?: "" ,
                         item.companyUrl  ?: "",

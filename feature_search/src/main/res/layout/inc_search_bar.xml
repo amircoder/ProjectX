@@ -10,10 +10,11 @@
 
         <EditText
             android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             style="@style/MainTheme.WithFont.BaseEditText.Default"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="@string/search_hint"
-            android:textColorHint="@color/colorGray40" />
+            android:hint="@string/search_hint" />
     </LinearLayout>
 </LinearLayout>

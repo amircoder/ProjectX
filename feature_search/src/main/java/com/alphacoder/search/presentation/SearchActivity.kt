@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.alphacoder.core.extension.makeFullScreen
 import com.alphacoder.core.view.ErrorSuccessActivity
+import com.alphacoder.core.view.SimpleActivity
 import com.alphacoder.feature_search.BuildConfig
 import com.alphacoder.feature_search.R
 import dagger.android.AndroidInjector
