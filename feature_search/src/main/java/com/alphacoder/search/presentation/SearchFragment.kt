@@ -104,7 +104,7 @@ class SearchFragment : ErrorSuccessFragment(), SearchListAdapter.Callback {
                 hideLoadingSpinner()
             }
             is ResultResponse.Failure<*, *> -> {
-                processError(response.throwable ?: Throwable("no error found"))
+                processError(response.throwable ?: Throwable())
                 hideLoadingSpinner()
             }
             is ResultResponse.Loading<*, *> -> {
